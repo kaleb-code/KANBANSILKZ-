@@ -1,0 +1,132 @@
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+    margin: 0;
+    font-family: 'IBM Plex Sans', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Work Sans', sans-serif;
+}
+
+@layer base {
+    :root {
+        --background: 38 33% 98%;
+        --foreground: 30 12% 9%;
+        --card: 0 0% 100%;
+        --card-foreground: 30 12% 9%;
+        --popover: 0 0% 100%;
+        --popover-foreground: 30 12% 9%;
+        --primary: 21 100% 50%;
+        --primary-foreground: 0 0% 100%;
+        --secondary: 36 21% 93%;
+        --secondary-foreground: 30 12% 9%;
+        --muted: 36 21% 93%;
+        --muted-foreground: 30 5% 37%;
+        --accent: 21 100% 95%;
+        --accent-foreground: 21 100% 50%;
+        --destructive: 0 84% 60%;
+        --destructive-foreground: 0 0% 100%;
+        --border: 36 17% 90%;
+        --input: 36 17% 90%;
+        --ring: 21 100% 50%;
+        --chart-1: 21 100% 50%;
+        --chart-2: 173 58% 39%;
+        --chart-3: 197 37% 24%;
+        --chart-4: 43 74% 66%;
+        --chart-5: 27 87% 67%;
+        --radius: 0.5rem;
+    }
+}
+
+@layer base {
+    * {
+        @apply border-border;
+    }
+    body {
+        @apply bg-background text-foreground;
+    }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+::-webkit-scrollbar-track {
+    background: #F4F1EA;
+    border-radius: 3px;
+}
+::-webkit-scrollbar-thumb {
+    background: #A39F97;
+    border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #635F59;
+}
+
+/* Kanban column scroll */
+.kanban-board {
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+}
+.kanban-column {
+    scroll-snap-align: start;
+}
+
+/* Drag states */
+.dragging {
+    opacity: 0.5;
+    transform: scale(0.95) rotate(2deg);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+    z-index: 1000;
+}
+.drag-over {
+    background-color: #FFF0E5 !important;
+    border: 2px dashed #FF5C00 !important;
+}
+
+/* Touch-friendly inputs */
+@media (max-width: 768px) {
+    input, select, textarea {
+        font-size: 16px !important;
+    }
+}
+
+@layer base {
+    [data-debug-wrapper="true"] {
+        display: contents !important;
+    }
+
+    [data-debug-wrapper="true"] > * {
+        margin-left: inherit;
+        margin-right: inherit;
+        margin-top: inherit;
+        margin-bottom: inherit;
+        padding-left: inherit;
+        padding-right: inherit;
+        padding-top: inherit;
+        padding-bottom: inherit;
+        column-gap: inherit;
+        row-gap: inherit;
+        gap: inherit;
+        border-left-width: inherit;
+        border-right-width: inherit;
+        border-top-width: inherit;
+        border-bottom-width: inherit;
+        border-left-style: inherit;
+        border-right-style: inherit;
+        border-top-style: inherit;
+        border-bottom-style: inherit;
+        border-left-color: inherit;
+        border-right-color: inherit;
+        border-top-color: inherit;
+        border-bottom-color: inherit;
+    }
+}

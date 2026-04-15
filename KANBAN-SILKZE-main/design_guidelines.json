@@ -1,0 +1,117 @@
+{
+  "project_name": "SilkZé Production Kanban",
+  "theme": "light",
+  "archetype": "Archetype 4 (Swiss & High-Contrast) + Archetype 1 (Organic & Earthy)",
+  "core_concept": "The Tactile Factory - High density production tracking meets the warmth of physical garment manufacturing. Mobile-first utility.",
+  "colors": {
+    "background": {
+      "app": "#FDFBF7",
+      "board": "#F4F1EA",
+      "card": "#FFFFFF",
+      "sheet": "#FDFBF7"
+    },
+    "text": {
+      "primary": "#1A1714",
+      "secondary": "#635F59",
+      "disabled": "#A39F97",
+      "accent": "#FF5C00"
+    },
+    "primary": {
+      "DEFAULT": "#FF5C00",
+      "hover": "#E65300",
+      "light": "#FFF0E5",
+      "foreground": "#FFFFFF"
+    },
+    "kanban_columns_indicators": {
+      "orcamento": "#8B8884",
+      "aguardando": "#F5A623",
+      "aprovado": "#7ED321",
+      "malha": "#4A90E2",
+      "corte": "#9013FE",
+      "silk": "#FF5C00",
+      "costura": "#D0021B",
+      "conferencia": "#F8E71C",
+      "expedicao": "#50E3C2",
+      "finalizado": "#417505",
+      "erros": "#E3000F",
+      "arquivado": "#4A4A4A"
+    },
+    "borders": {
+      "DEFAULT": "#EBE8E1",
+      "focus": "#FF5C00"
+    }
+  },
+  "typography": {
+    "headings": {
+      "font_family": "Work Sans",
+      "weights": ["600", "700"],
+      "tracking": "tracking-tight"
+    },
+    "body": {
+      "font_family": "IBM Plex Sans",
+      "weights": ["400", "500"]
+    },
+    "scale": {
+      "h1": "text-2xl sm:text-3xl lg:text-4xl",
+      "h2": "text-xl sm:text-2xl",
+      "h3": "text-lg sm:text-xl",
+      "h4": "text-base sm:text-lg",
+      "body": "text-sm",
+      "labels": "text-xs tracking-[0.2em] uppercase"
+    }
+  },
+  "layout": {
+    "spacing_system": "Generous spacing (p-6, p-8) for expanded sheet forms. Dense touch-friendly spacing (p-2, p-3) for board cards.",
+    "board_strategy": "Mobile-first horizontal scroll (snap-x snap-mandatory). Each column takes 85vw on mobile so the next column peeks. Standard flex-row with overflow-x-auto on desktop.",
+    "card_expansion": "Shadcn Sheet component (Slide-over from right on desktop, bottom drawer or full screen on mobile). Do not expand in-place to avoid breaking Kanban context.",
+    "surface_strategy": "Cards use flat solid background (bg-white) with 1px border (border-border) and soft shadow-sm. Rounded-md. Hover: -translate-y-[2px] shadow-md."
+  },
+  "components": {
+    "drag_and_drop": "Use dnd-kit for touch-optimized drag and drop.",
+    "forms": "Customize Shadcn UI Inputs. Remove generic focus rings. Use robust 2px focus border in Primary Orange.",
+    "tabs": "Shadcn Tabs for Info, Budget, Size Grid, Checklist, Image, Layout. Tab triggers should use pill-shaped design, orange bg for active.",
+    "size_grid_tab": "Dense matrix layout using CSS Grid. Apply Grid Borders (visible skeleton) for rows/columns of sizes (Adult PP-XXXG, Kids T1-T16).",
+    "budget_tab": "Minimalist table, numeric values aligned right. Bold total rows.",
+    "checklist_tab": "Custom checkboxes. Checked state should cross out text.",
+    "cards": "Keep cards compact: Order ID, Client Name, Deadline, Item Count, and a colored left-border indicating status/column."
+  },
+  "icons": {
+    "library": "@phosphor-icons/react",
+    "style": "Duotone weight for high-end tactile feel."
+  },
+  "image_urls": {
+    "login_background": {
+      "url": "https://images.unsplash.com/photo-1773525912476-213bff96b8a4?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2NzB8MHwxfHNlYXJjaHwxfHxzaWxrJTIwc2NyZWVuJTIwcHJpbnRpbmclMjBmYWN0b3J5fGVufDB8fHx8MTc3NjI1NjEzN3ww&ixlib=rb-4.1.0&q=85",
+      "description": "Screen printing machine with yellow ink design. Use for a split-screen login page background (50% image / 50% form).",
+      "category": "background"
+    },
+    "placeholder_tshirt": {
+      "url": "https://images.unsplash.com/photo-1620799139507-2a76f79a2f4d?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NTYxOTF8MHwxfHNlYXJjaHwxfHxibGFuayUyMHQtc2hpcnQlMjBtb2NrdXB8ZW58MHx8fHwxNzc2MjU2MTM3fDA&ixlib=rb-4.1.0&q=85",
+      "description": "White blank t-shirt mockup. Use as placeholder image inside the 'Image upload' or 'Layout' tab.",
+      "category": "product_mockup"
+    }
+  },
+  "animations": {
+    "card_drag": "Scale down slightly (scale-95), rotate 2deg, apply drop-shadow-xl during active drag.",
+    "interactions": "Smooth transitions on hover for buttons (bg-color, transform).",
+    "sheet_open": "Slide-in from right with overlay."
+  },
+  "accessibility": {
+    "contrast": "Ensure white text on Orange button passes APCA.",
+    "testing": "All interactive elements MUST have data-testid attributes (e.g., data-testid='login-button', data-testid='move-to-corte-btn').",
+    "mobile_touch": "Ensure all tap targets (buttons, checklist items, cards) are at least 44x44px."
+  },
+  "instructions_to_main_agent": [
+    "Install and use Phosphor icons: yarn add @phosphor-icons/react",
+    "Use dnd-kit for the Kanban board drag-and-drop functionality.",
+    "Construct the 12 specific columns (Orçamento, Aguardando, Aprovado, Malha, Corte, Silk, Costura, Conferência, Expedição, Finalizado, Erros, Arquivado) correctly.",
+    "Do NOT use 'Inter' font. Import 'Work Sans' and 'IBM Plex Sans' from Google Fonts and apply them in tailwind.config.",
+    "Build the detailed order form inside a Slide-over (Shadcn Sheet), so users don't lose the board context when viewing an order.",
+    "Implement the 6 tabs explicitly: Info, Budget, Size Grid, Checklist, Image, Layout notes.",
+    "Design the Size Grid as a tight matrix/table of inputs.",
+    "Ensure the layout is highly usable on mobile. The board MUST be horizontally scrollable without breaking.",
+    "Add data-testid attributes to all interactive and structural components.",
+    "Include simple PDF generation hook (can be mocked with browser window.print or jsPDF if possible).",
+    "Include mockup state variables for Backup/Restore triggers."
+  ]
+}
